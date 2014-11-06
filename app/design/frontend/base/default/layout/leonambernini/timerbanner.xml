@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>leonam_bernini/timerbanner/css/timerbanner.css</stylesheet></action>
+        </reference>
+        <reference name="header">
+            <block type="timerbanner/timerbanner" name="leonambernini.timerbanner" as="leonambernini.timerbanner" />
+        </reference>
+        <reference name="catalog.topnav">
+            <block type="timerbanner/timerbanner" name="leonambernini.timerbanner" as="leonambernini.timerbanner" />
+        </reference>
+        <reference name="page">
+            <block type="timerbanner/timerbanner" name="leonambernini.timerbanner" as="leonambernini.timerbanner" />
+        </reference>
+    </default>
+</layout>

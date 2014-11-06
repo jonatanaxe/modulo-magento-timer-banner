@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <timerbanner translate="title" module="timerbanner">
+                                        <title>TimerBanner Setting - NEX</title>
+                                    </timerbanner>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <timerbanner module="timerbanner" translate="title">
+            <title>TimerBanner (nex)</title>
+            <sort_order>99</sort_order>               
+            <children>
+                <items module="timerbanner">
+                    <title>Manage Items</title>
+                    <sort_order>0</sort_order>
+                    <action>timerbanner/adminhtml_index</action>
+                </items>
+                <reports module="timerbanner" translate="title">
+                    <title>reports</title>
+                    <sort_order>1</sort_order>
+                    <children>
+                        <reposts_all module="timerbanner" translate="title">
+                            <title>All Banners</title>
+                            <sort_order>0</sort_order>
+                            <action>timerbanner/adminhtml_reports</action>
+                        </reposts_all>
+                        <reposts_banner module="timerbanner" translate="title">
+                            <title>Per Banner</title>
+                            <sort_order>1</sort_order>
+                            <action>timerbanner/adminhtml_reports/banner</action>
+                        </reposts_banner>
+                    </children>
+                </reports>
+            </children>
+        </timerbanner>
+    </menu>
+</config>

@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/10/2014, 21:35:27
+    Author     : Leonam
+*/
+.transition{ -webkit-transition: 150ms all linear 0s; -moz-transition: 150ms all linear 0s; -o-transition: 150ms all linear 0s; transition: 150ms all linear 0s; }
+.inline-block,
+.inline-block li{ display: inline-block; vertical-align: top; /* Setting a common base */ margin: 0; padding: 0; /* For IE 7 */ zoom: 1; *display: inline; }
+
+.timer-banner{ background-position: center; background-repeat: no-repeat; box-shadow: 0 0 15px 0 #000; border-radius: 4px; display: block; margin: 10px auto; }
+.timer-banner .border{ display: block; padding: 10px; position: relative; text-align: left; }
+.timer-banner-title{ color: #060606; display: block; font: 700 16px/20px 'Tahoma', sans-serif; padding: 10px 0; }
+.timer-banner-image img{ display: block; margin: 0 auto; max-width: 100%; }
+.timer-banner-name{ color: #006AA9; display: block; font: 700 14px/18px 'Tahoma', sans-serif; padding: 10px 0; text-align: center; }
+.timer-banner-value .tbv-price{ color: #060606; display: block; font: 400 12px/15px 'Tahoma', sans-serif; }
+.timer-banner-value .tbv-price b{ color: #060606; font-weight: 700; text-decoration: line-through; }
+.timer-banner-value .tbv-final-price{ color: #060606; display: block; font: 400 15px/22px 'Tahoma', sans-serif; }
+.timer-banner-value .tbv-final-price b{ color: #006AA9; font-size: 20px; font-weight: 700; }
+.timer-banner-box-time{ display: block; padding: 5px; }
+.timer-banner-time{ background-color: rgb(255,255,255); background-color: rgba(255,255,255,.5); border-radius: 5px; color: #006AA9; display: block; font: 400 24px/21px 'Tahoma', sans-serif; padding: 20px 10px; text-align: center; }
+.timer-banner-time > span.separator:before{ content: ":"; margin-right: 5px; }
+.timer-banner-legend{ color: #060606; display: block; font: 300 11px/15px 'Tahoma', sans-serif; text-align: center; text-transform: uppercase; }
+.timer-banner-url{ background-color: #006AA9; border-radius: 4px; color: #fff; display: block; font: 400 15px/18px 'Tahoma', sans-serif; margin: 15px auto; max-width: 200px; padding: 6px; text-align: center; text-decoration: none; }
+.timer-banner-url:hover{ background-color: #fff; color: #006AA9; text-decoration: none; }
+
+
+.timer-banner-template-1 .timer-banner-image,
+.timer-banner-template-2 .timer-banner-image{ display: block; margin-bottom: 15px; }
+.timer-banner-template-1 .timer-banner-value,
+.timer-banner-template-2 .timer-banner-value{ display: block; padding: 10px 0; text-align: right; }
+
+.timer-banner-template-3 .timer-banner-box-image-value{ display: block; padding: 10px 0; }
+.timer-banner-template-3 .timer-banner-image{ display: inline-block; vertical-align: top; /* Setting a common base */ margin: 0; padding: 0; /* For IE 7 */ zoom: 1; *display: inline; padding-right: 1%; width: 60%; }
+.timer-banner-template-3 .timer-banner-value{ display: inline-block; vertical-align: top; /* Setting a common base */ margin: 0; padding: 0; /* For IE 7 */ zoom: 1; *display: inline; padding-top: 20%; text-align: right; width: 38%; }
+
+.timer-banner-template-4 .timer-banner-box-name-timer{ display: inline-block; vertical-align: top; /* Setting a common base */ margin: 0; padding: 0; /* For IE 7 */ zoom: 1; *display: inline; padding-left: 2%; width: 40%; }
+.timer-banner-template-4 .timer-banner-box-prices-button{ bottom: 10px; position: absolute; right: 15px; }
+.timer-banner-template-4 .timer-banner-image{ display: inline-block; vertical-align: top; /* Setting a common base */ margin: 0; padding: 0; /* For IE 7 */ zoom: 1; *display: inline; width: 25%; }
+.timer-banner-template-4 .timer-banner-value{ text-align: right; }
+.timer-banner-template-4 .timer-banner-name{ padding-top: 0; text-align: left; }
+
+.timer-banner-template-5 .timer-banner-box-name-prices{ display: inline-block; vertical-align: top; /* Setting a common base */ margin: 0; padding: 0; /* For IE 7 */ zoom: 1; *display: inline; padding-left: 2%; width: 40%; }
+.timer-banner-template-5 .timer-banner-image{ display: inline-block; vertical-align: top; /* Setting a common base */ margin: 0; padding: 0; /* For IE 7 */ zoom: 1; *display: inline; width: 25%; }
+.timer-banner-template-5 .timer-banner-name{ padding-top: 0; text-align: left; }
+.timer-banner-template-5 .timer-banner-box-time{ position: absolute; right: 15px; top: 15px; }
+.timer-banner-template-5 .timer-banner-url{ bottom: 10px; position: absolute; right: 15px; }
+

@@ -1,0 +1,101 @@
+<?php if( Mage::getStoreConfig("timerbanner/general/enable") ): ?>
+
+<script src="<?php echo $this->getJsUrl('leonam_bernini/timerbanner/timerbanner.js'); ?>" type="text/javascript"></script>
+
+<?php $data = $this->getDataBanner(); ?>
+<?php
+$title  = '<h2 class="timer-banner-title">' . $data['title'] . '</h2>';
+$image  = '<span class="timer-banner-image"><img src="' . $data['product']['image'] . '" alt="' . $data['product']['name'] . '" title="' . $data['product']['name'] . '"></span>';
+$name   = '<b class="timer-banner-name">' . $data['product']['name'] . '</b>';
+$prices = '<span class="timer-banner-value">'.
+          ' <span class="tbv-price">' . $this->__('of:') . ' <b>' . $data['product']['price'] . '</b></span>' .
+          ' <span class="tbv-final-price">' . $this->__('for:') . ' <b>' . $data['product']['sPrice'] . '</b></span>' .
+          '</span>';
+$timer  = '<span class="timer-banner-box-time">'
+        . ' <span id="timer-banner-time-' . $data['product']['id'] . '" class="timer-banner-time">' .
+          '     <span id="timer-banner-days-' . $data['product']['id'] . '"></span>' .
+          '     <span id="timer-banner-hours-' . $data['product']['id'] . '" class="separator"></span>' .
+          '     <span id="timer-banner-minute-' . $data['product']['id'] . '" class="separator"></span>' .
+          '     <span id="timer-banner-seconds-' . $data['product']['id'] . '" class="separator"></span>' .
+          ' </span>' .
+          ' <span class="timer-banner-legend">' . $this->__('D : H : M : S') . '</span>' .
+          '</span>';
+$button = '<a href="' . $data['product']['url'] . '" title="' . $data['product']['name'] . '" class="timer-banner-url transition" data-id="' . $data['product']['id'] . '" onclick="saveTimerBannerClick(this)">' . $this->__("BUY") . '</a>';
+?>
+
+<span id="timer-banner-<?php echo $data['product']['id'] ?>" class="timer-banner" style="<?php echo $data['layout']['backgroundColor'] . $data['layout']['backgroundImage'] . $data['layout']['width'] . $data['layout']['height']; ?>">
+    <span class="border timer-banner-template-<?php echo $data['layout']['template'] ?>">
+        
+    <?php 
+    if( $data['layout']['template'] == 1 ):
+        echo $title . $image . $name . $prices . $timer . $button;
+    elseif( $data['layout']['template'] == 2 ):
+        echo $title . $name . $image . $prices . $timer . $button;
+    elseif( $data['layout']['template'] == 3 ):
+        echo $title . $name . '<span class="timer-banner-box-image-value">' . $image . $prices . '</span>' . $timer . $button;
+    elseif( $data['layout']['template'] == 4 ):
+        echo $title . $image . '<span class="timer-banner-box-name-timer">' . $name .  $timer . '</span>' . '<span class="timer-banner-box-prices-button">' . $prices . $button . '</span>';
+    elseif( $data['layout']['template'] == 5 ):
+        echo $title . $image . '<span class="timer-banner-box-name-prices">' . $name . $prices . '</span>' . $timer . $button;
+    endif;
+    ?>
+        
+    </span>
+</span>
+<?php 
+    $dateTime = explode( ' ', $data['time'] );
+    $date   = explode( '-', $dateTime[0] );
+    $time   = explode( ':', $dateTime[1] );
+    $day    = $date[2];
+    $month  = $date[1];
+    $year   = $date[0];
+    
+    $hours  = $time[0];
+    $minute = $time[1];
+    $second = $time[2];
+?>
+<script language="Javascript"> 
+
+    var URL_TIMER_BANNER = '<?php echo $this->getUrl('timerbanner/index/click'); ?>';
+
+    function atualizaContador<?php echo $data['product']['id'] ?>() 
+    {  
+        var YY = <?php echo $year; ?>;
+        var MM = <?php echo $month; ?>;
+        var DD = <?php echo $day; ?>;
+        var HH = <?php echo $hours; ?>;
+        var MI = <?php echo $minute; ?>;
+        var SS = <?php echo $second; ?>;
+    
+	var hoje = new Date();  
+	var futuro = new Date(YY,MM-1,DD,HH,MI,SS);   
+	var ss = parseInt((futuro - hoje) / 1000);  
+	var mm = parseInt(ss / 60);  
+	var hh = parseInt(mm / 60);  
+	var dd = parseInt(hh / 24);  
+        
+	ss = ss - (mm * 60);  
+	mm = mm - (hh * 60);  
+	hh = hh - (dd * 24);   
+	
+	dd = (dd && dd > 1) ? dd : (dd==1 ? '01' : '00');  
+	hh = ((hh.toString()).length) ? ((hh.toString()).length == 2) ? hh : '0'+hh : '00';  
+	mm = ((mm.toString()).length) ? ((mm.toString()).length == 2) ? mm : '0'+mm : '00';  
+	ss = ((ss.toString()).length) ? ((ss.toString()).length == 2) ? ss: '0'+ss : '00';  
+	
+        if (dd+hh+mm+ss > 0) 
+        {
+            document.getElementById('timer-banner-days-<?php echo $data['product']['id'] ?>').innerHTML = dd;
+            document.getElementById('timer-banner-hours-<?php echo $data['product']['id'] ?>').innerHTML = hh;
+            document.getElementById('timer-banner-minute-<?php echo $data['product']['id'] ?>').innerHTML = mm;
+            document.getElementById('timer-banner-seconds-<?php echo $data['product']['id'] ?>').innerHTML = ss;	
+            setTimeout(atualizaContador<?php echo $data['product']['id'] ?>,1000);  
+        }else{
+            document.getElementById('timer-banner-time-<?php echo $data['product']['id'] ?>').innerHTML = '<?php echo $data['textTime'] ?>';	
+            setTimeout(atualizaContador<?php echo $data['product']['id'] ?>,1000);  
+        }
+    }
+    setTimeout("atualizaContador<?php echo $data['product']['id'] ?>()",1000);
+</script>
+
+<?php endif; ?>
